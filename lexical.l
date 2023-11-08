@@ -16,11 +16,11 @@ argumento \[("v"[0-9]+" "?)*\]
 {string}                        {yylval.sval = strdup(yytext); return STR;}
 {float}                         {yylval.fval = atof(yytext); return FLO;}
 {int}                           {yylval.ival = atoi(yytext); return INT;}
-=			                    {return IGU;}
-\+			                    {return MAS;}
-\*			                    {return MUL;}
-\-			                    {return RES;}
-\/			                    {return DIV;}
+=                                {return IGU;}
+\+                                {return MAS;}
+\*                                {return MUL;}
+\-                                {return RES;}
+\/                                {return DIV;}
 "<"                             {return MEN;}
 "<="                            {return MEI;}
 ">"                             {return MAY;}
@@ -42,7 +42,7 @@ argumento \[("v"[0-9]+" "?)*\]
 "funcEnd"                       {return FUE;}
 "capturar"                       {return CAP;}
 "print"                         {return PRINT;}
-[ \t\n]			       	        {/* ignorar espacios */}
-.			                    {printf("Error léxico: %s\n", yytext);}
+[ \t\n]                               {/* ignorar espacios */}
+.                                {printf("Error léxico: %s\n", yytext);}
 %%
 int yywrap(){return 1;}

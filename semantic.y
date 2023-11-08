@@ -58,73 +58,75 @@ extern FILE *yyin;
 
 %%
 
-sentences	: 
-	  		| sentence 
-		  	| decfun   
-			| sentences sentence 
-			| sentences decfun 
+sentences    : 
+              | sentence 
+              | decfun   
+            | sentences sentence 
+            | sentences decfun 
 
-sentence	: decvar
-	 		| asigvar 
-			| initvar 
-			| operation BIN 
-			| sii
-			| hasta
-			| err 
-			| callfuncion  
-			| printSentence
+sentence    : decvar
+             | asigvar 
+            | initvar 
+            | operation BIN 
+            | sii
+            | hasta
+            | err 
+            | callfuncion  
+            | printSentence
 
-decvar		: VAR IVR BIN 
+decvar        : VAR IVR BIN 
 
-initvar		: VAR IVR IGU INT BIN { setSymbolValue($2, (float)$4); }
-			| VAR IVR IGU FLO BIN { setSymbolValue($2, $4); }
+initvar        : VAR IVR IGU INT BIN { setSymbolValue($2, (float)$4); }
+            | VAR IVR IGU FLO BIN { setSymbolValue($2, $4); }
+            | VAR IVR IGU operation BIN { setSymbolValue($2, (float)$4); }
+            | VAR IVR IGU 
 
-asigvar		: IVR IGU value BIN { setSymbolValue($1, $3); }
+asigvar        : IVR IGU value BIN { setSymbolValue($1, $3); }
 
-value		: INT { $$ = (float)$1; }
-       		| FLO { $$ = $1; }
-			| IVR { $$ = getSymbolValue($1); }
+value        : INT { $$ = (float)$1; }
+               | FLO { $$ = $1; }
+            | IVR { $$ = getSymbolValue($1); }
 
-operation 	: value MAS value { $$ = $1 + $3; }
-			| value RES value { $$ = $1 - $3; }
-			| value MUL value { $$ = $1 * $3; }
-			| value DIV value { $$ = $1 / $3; }
+operation     : value MAS value { $$ = $1 + $3; }
+            | value RES value { $$ = $1 - $3; }
+            | value MUL value { $$ = $1 * $3; }
+            | value DIV value { $$ = $1 / $3; }
 
 callfuncion : IFU ARG BIN 
 
-sii		: SII PIZ condition PDE sentences FIN 
-			| SII PIZ condition PDE sentences NOO sentences FIN 
+sii        : SII PIZ condition PDE sentences FIN 
+            | SII PIZ condition PDE sentences NOO sentences FIN 
 
-hasta 		: HAS PIZ condition PDE sentences FIN 
+hasta         : HAS PIZ condition PDE sentences FIN 
 
-condition	: value MEN value 
-			| value MEI value 
-			| value MAY value 
-			| value MAI value 
-			| value EQU value 
-			| value DIF value 
+condition    : value MEN value 
+            | value MEI value 
+            | value MAY value 
+            | value MAI value 
+            | value EQU value 
+            | value DIF value 
 
-decfun		: FUN IFU PAR sentences atras FUE 
+decfun        : FUN IFU PAR sentences atras FUE 
 
-atras 		: ATR value BIN 
-			| ATR operation BIN 
+atras         : ATR value BIN 
+            | ATR operation BIN 
 
-err 		: BUS sentences CAP sentences FIN 
+err         : BUS sentences CAP sentences FIN 
 
 printSentence : PRINT value BIN { printf("%f\n", $2); }
 
 %%
 
 void yyerror(char *s){
-	printf("Error Sintáctico: %s\n", s);
+    printf("Error Sintáctico: %s\n", s);
 }
 
 int main(int argc, char **argv){
-	printf("Inicio del programa: \n");
-	if(argc>1)
-		yyin=fopen(argv[1],"rt");
-	else
-		yyin=stdin;
-	yyparse();
-	return 0;
+    printf("Inicio del programa: \n");
+    if(argc>1)
+        yyin=fopen(argv[1],"rt");
+    else
+        yyin=stdin;
+    yyparse();
+    return 0;
 }
