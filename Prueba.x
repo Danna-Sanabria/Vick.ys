@@ -16,4 +16,7 @@ print v6;
 var v7 = v5 / 2;
 print v7;
 
+var v8 = 5;
+sii (v8 < 10) var v8 = 5; fin
 
+print v8;

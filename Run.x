@@ -1,4 +1,4 @@
-//sh ./Run.x //
+//sh ./Run.x
 rm semantic.tab.* lex.yy.c Vick.exe
 
 bison -d semantic.y
