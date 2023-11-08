@@ -37,8 +37,8 @@ argumento \[("v"[0-9]+" "?)*\]
 {identiFuncion}                 {yylval.sval = strdup(yytext); return IFU;}
 {param}                         {return PAR;}
 {argumento}                     {return ARG;}
-"atras"                          {return ATR;}
-"buscar"                          {return BUS;}
+"atras"                         {return ATR;}
+"intentar"                      {return ITR;}
 "funcEnd"                       {return FUE;}
 "capturar"                       {return CAP;}
 "print"                         {return PRINT;}

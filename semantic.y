@@ -50,7 +50,7 @@ extern FILE *yyin;
 %token <sval> IVR STR IFU
 %token <ival> INT
 %token <fval> FLO
-%token BIN VAR IGU MAS MUL RES DIV MEN MEI MAY MAI EQU DIF SII PIZ PDE FIN NOO HAS FUN PAR ATR BUS FUE CAP ARG PRINT
+%token BIN VAR IGU MAS MUL RES DIV MEN MEI MAY MAI EQU DIF SII PIZ PDE FIN NOO HAS FUN PAR ATR ITR FUE CAP ARG PRINT
 
 %type <fval> value
 %type <fval> operation
@@ -111,7 +111,7 @@ decfun        : FUN IFU PAR sentences atras FUE
 atras         : ATR value BIN 
             | ATR operation BIN 
 
-err         : BUS sentences CAP sentences FIN 
+err         : ITR sentences CAP sentences FIN 
 
 printSentence : PRINT value BIN { printf("%f\n", $2); }
 
