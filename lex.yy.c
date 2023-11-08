@@ -1965,4 +1965,3 @@ void yyfree (void * ptr )
 #line 47 "lexical.l"
 
 int yywrap(){return 1;}
-
