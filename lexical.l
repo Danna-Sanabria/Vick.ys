@@ -2,7 +2,7 @@
 #include "semantic.tab.h"
 %}
 
-identiVar v[0-9]+
+identiVar [a-z]+[0-9]+
 float -?[0-9]+\.[0-9]*
 int -?[0-9]+ 
 string \"[^(\n|\")]*\"
@@ -34,7 +34,7 @@ argumento \[("v"[0-9]+" "?)*\]
 "no"                            {return NOO;}
 "hasta"                         {return HAS;}
 "funcion"                       {return FUN;}
-{identiFuncion}                 {yylval.sval = strdup(yytext); return IFU;}
+{identiFuncion}                 {return IFU;}
 {param}                         {return PAR;}
 {argumento}                     {return ARG;}
 "atras"                         {return ATR;}

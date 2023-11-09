@@ -81,7 +81,7 @@ extern int yydebug;
     FUN = 282,                     /* FUN  */
     PAR = 283,                     /* PAR  */
     ATR = 284,                     /* ATR  */
-    BUS = 285,                     /* BUS  */
+    ITR = 285,                     /* ITR  */
     FUE = 286,                     /* FUE  */
     CAP = 287,                     /* CAP  */
     ARG = 288,                     /* ARG  */
@@ -94,7 +94,7 @@ extern int yydebug;
 #if ! defined YYSTYPE && ! defined YYSTYPE_IS_DECLARED
 union YYSTYPE
 {
-#line 44 "semantic.y"
+#line 42 "semantic.y"
 
     int ival;
     float fval;

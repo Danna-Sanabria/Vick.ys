@@ -2,6 +2,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+extern int yylex(void);
+void yyerror(char *s);
 extern FILE *yyin;
 
 #define MAX_SYMBOLS 256
@@ -35,10 +37,6 @@ float getSymbolValue(char *name) {
     printf("Variable no definida: %s\n", name);
     return 0.0;
 }
-
-extern int yylex(void);
-void yyerror(char *s);
-extern FILE *yyin;
 %}
 
 %union {
@@ -58,14 +56,14 @@ extern FILE *yyin;
 
 %%
 
-sentences    : 
-              | sentence 
-              | decfun   
+sentences   : 
+            | sentence 
+            | decfun   
             | sentences sentence 
             | sentences decfun 
 
 sentence    : decvar
-             | asigvar 
+            | asigvar 
             | initvar 
             | operation BIN 
             | sii
@@ -79,9 +77,11 @@ decvar        : VAR IVR BIN
 initvar        : VAR IVR IGU INT BIN { setSymbolValue($2, (float)$4); }
             | VAR IVR IGU FLO BIN { setSymbolValue($2, $4); }
             | VAR IVR IGU operation BIN { setSymbolValue($2, (float)$4); }
-            | VAR IVR IGU 
+            | VAR IVR IGU STR
 
-asigvar        : IVR IGU value BIN { setSymbolValue($1, $3); }
+asigvar     : IVR IGU value BIN { setSymbolValue($1, $3); }
+            | IVR IGU operation BIN
+            | IVR IGU callfuncion
 
 value        : INT { $$ = (float)$1; }
                | FLO { $$ = $1; }
