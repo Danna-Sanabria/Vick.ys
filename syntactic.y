@@ -37,6 +37,7 @@ float getSymbolValue(char *name) {
     printf("Variable no definida: %s\n", name);
     return 0.0;
 }
+
 %}
 
 %union {
@@ -74,7 +75,7 @@ sentence    : decvar
 
 decvar      : VAR IVR PYC 
 
-initvar        : VAR IVR IGU INT PYC { setSymbolValue($2, (float)$4); }
+initvar     : VAR IVR IGU INT PYC { setSymbolValue($2, (float)$4); }
             | VAR IVR IGU FLO PYC { setSymbolValue($2, $4); }
             | VAR IVR IGU operation PYC { setSymbolValue($2, (float)$4); }
             | VAR IVR IGU STR
@@ -83,32 +84,32 @@ asigvar     : IVR IGU value PYC { setSymbolValue($1, $3); }
             | IVR IGU operation PYC
             | IVR IGU callfuncion
 
-value        : INT { $$ = (float)$1; }
-               | FLO { $$ = $1; }
+value       : INT { $$ = (float)$1; }
+            | FLO { $$ = $1; }
             | IVR { $$ = getSymbolValue($1); }
 
-operation     : value MAS value { $$ = $1 + $3; }
+operation   : value MAS value { $$ = $1 + $3; }
             | value RES value { $$ = $1 - $3; }
             | value MUL value { $$ = $1 * $3; }
             | value DIV value { $$ = $1 / $3; }
 
 callfuncion : IFU ARG PYC 
 
-sii        : SII PIZ condition PDE program FIN 
+sii         : SII PIZ condition PDE program FIN 
             | SII PIZ condition PDE program NOO program FIN 
 
-hasta         : HAS PIZ condition PDE program FIN 
+hasta       : HAS PIZ condition PDE program FIN 
 
-condition    : value MEN value 
+condition   : value MEN value 
             | value MEI value 
             | value MAY value 
             | value MAI value 
             | value EQU value 
             | value DIF value 
 
-decfun        : FUN IFU PAR program atras FUE 
+decfun      : IFU 
 
-atras         : RTN value PYC 
+atras       : RTN value PYC 
             | RTN operation PYC 
 
 err         : ITR program ATP program FIN 

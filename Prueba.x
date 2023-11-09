@@ -25,7 +25,7 @@ sii (v8 < 10) var v8 = 5; fin
 intentar 1/0; atrapar 3 + 2; fin
 print v8;
 
-funcion fun0
+fun1 
 print v8;
 
 var v9 = 0;
