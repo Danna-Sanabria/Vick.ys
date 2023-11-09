@@ -796,7 +796,7 @@ do_action:	/* This label is used only to access EOF actions. */
 case 1:
 YY_RULE_SETUP
 #line 13 "lexical.l"
-{return BIN;}
+{return PYC;}
 	YY_BREAK
 case 2:
 YY_RULE_SETUP

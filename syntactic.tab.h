@@ -59,7 +59,7 @@ extern int yydebug;
     IFU = 260,                     /* IFU  */
     INT = 261,                     /* INT  */
     FLO = 262,                     /* FLO  */
-    BIN = 263,                     /* BIN  */
+    PYC = 263,                     /* PYC  */
     VAR = 264,                     /* VAR  */
     IGU = 265,                     /* IGU  */
     MAS = 266,                     /* MAS  */

@@ -48,7 +48,7 @@ float getSymbolValue(char *name) {
 %token <sval> IVR STR IFU
 %token <ival> INT
 %token <fval> FLO
-%token BIN VAR IGU MAS MUL RES DIV MEN MEI MAY MAI EQU DIF SII PIZ PDE FIN NOO HAS FUN PAR RTN ITR FUE ATP ARG PRINT
+%token PYC VAR IGU MAS MUL RES DIV MEN MEI MAY MAI EQU DIF SII PIZ PDE FIN NOO HAS FUN PAR RTN ITR FUE ATP ARG PRINT
 
 %type <fval> value
 %type <fval> operation
@@ -65,22 +65,22 @@ program   :
 sentence    : decvar
             | asigvar 
             | initvar 
-            | operation BIN 
+            | operation PYC 
             | sii
             | hasta
             | err 
             | callfuncion  
             | printSentence
 
-decvar        : VAR IVR BIN 
+decvar      : VAR IVR PYC 
 
-initvar        : VAR IVR IGU INT BIN { setSymbolValue($2, (float)$4); }
-            | VAR IVR IGU FLO BIN { setSymbolValue($2, $4); }
-            | VAR IVR IGU operation BIN { setSymbolValue($2, (float)$4); }
+initvar        : VAR IVR IGU INT PYC { setSymbolValue($2, (float)$4); }
+            | VAR IVR IGU FLO PYC { setSymbolValue($2, $4); }
+            | VAR IVR IGU operation PYC { setSymbolValue($2, (float)$4); }
             | VAR IVR IGU STR
 
-asigvar     : IVR IGU value BIN { setSymbolValue($1, $3); }
-            | IVR IGU operation BIN
+asigvar     : IVR IGU value PYC { setSymbolValue($1, $3); }
+            | IVR IGU operation PYC
             | IVR IGU callfuncion
 
 value        : INT { $$ = (float)$1; }
@@ -92,7 +92,7 @@ operation     : value MAS value { $$ = $1 + $3; }
             | value MUL value { $$ = $1 * $3; }
             | value DIV value { $$ = $1 / $3; }
 
-callfuncion : IFU ARG BIN 
+callfuncion : IFU ARG PYC 
 
 sii        : SII PIZ condition PDE program FIN 
             | SII PIZ condition PDE program NOO program FIN 
@@ -108,12 +108,12 @@ condition    : value MEN value
 
 decfun        : FUN IFU PAR program atras FUE 
 
-atras         : RTN value BIN 
-            | RTN operation BIN 
+atras         : RTN value PYC 
+            | RTN operation PYC 
 
 err         : ITR program ATP program FIN 
 
-printSentence : PRINT value BIN { printf("%f\n", $2); }
+printSentence : PRINT value PYC { printf("%f\n", $2); }
 
 %%
 

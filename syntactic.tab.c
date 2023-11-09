@@ -144,7 +144,7 @@ enum yysymbol_kind_t
   YYSYMBOL_IFU = 5,                        /* IFU  */
   YYSYMBOL_INT = 6,                        /* INT  */
   YYSYMBOL_FLO = 7,                        /* FLO  */
-  YYSYMBOL_BIN = 8,                        /* BIN  */
+  YYSYMBOL_PYC = 8,                        /* PYC  */
   YYSYMBOL_VAR = 9,                        /* VAR  */
   YYSYMBOL_IGU = 10,                       /* IGU  */
   YYSYMBOL_MAS = 11,                       /* MAS  */
@@ -596,7 +596,7 @@ static const char *yysymbol_name (yysymbol_kind_t yysymbol) YY_ATTRIBUTE_UNUSED;
 static const char *const yytname[] =
 {
   "\"end of file\"", "error", "\"invalid token\"", "IVR", "STR", "IFU",
-  "INT", "FLO", "BIN", "VAR", "IGU", "MAS", "MUL", "RES", "DIV", "MEN",
+  "INT", "FLO", "PYC", "VAR", "IGU", "MAS", "MUL", "RES", "DIV", "MEN",
   "MEI", "MAY", "MAI", "EQU", "DIF", "SII", "PIZ", "PDE", "FIN", "NOO",
   "HAS", "FUN", "PAR", "RTN", "ITR", "FUE", "ATP", "ARG", "PRINT",
   "$accept", "program", "sentence", "decvar", "initvar", "asigvar",
@@ -1223,25 +1223,25 @@ yyreduce:
   YY_REDUCE_PRINT (yyn);
   switch (yyn)
     {
-  case 17: /* initvar: VAR IVR IGU INT BIN  */
+  case 17: /* initvar: VAR IVR IGU INT PYC  */
 #line 77 "syntactic.y"
                                      { setSymbolValue((yyvsp[-3].sval), (float)(yyvsp[-1].ival)); }
 #line 1230 "syntactic.tab.c"
     break;
 
-  case 18: /* initvar: VAR IVR IGU FLO BIN  */
+  case 18: /* initvar: VAR IVR IGU FLO PYC  */
 #line 78 "syntactic.y"
                                   { setSymbolValue((yyvsp[-3].sval), (yyvsp[-1].fval)); }
 #line 1236 "syntactic.tab.c"
     break;
 
-  case 19: /* initvar: VAR IVR IGU operation BIN  */
+  case 19: /* initvar: VAR IVR IGU operation PYC  */
 #line 79 "syntactic.y"
                                         { setSymbolValue((yyvsp[-3].sval), (float)(yyvsp[-1].fval)); }
 #line 1242 "syntactic.tab.c"
     break;
 
-  case 21: /* asigvar: IVR IGU value BIN  */
+  case 21: /* asigvar: IVR IGU value PYC  */
 #line 82 "syntactic.y"
                                 { setSymbolValue((yyvsp[-3].sval), (yyvsp[-1].fval)); }
 #line 1248 "syntactic.tab.c"
@@ -1289,7 +1289,7 @@ yyreduce:
 #line 1290 "syntactic.tab.c"
     break;
 
-  case 45: /* printSentence: PRINT value BIN  */
+  case 45: /* printSentence: PRINT value PYC  */
 #line 116 "syntactic.y"
                                 { printf("%f\n", (yyvsp[-1].fval)); }
 #line 1296 "syntactic.tab.c"
