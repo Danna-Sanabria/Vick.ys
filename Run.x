@@ -1,8 +1,8 @@
 //sh ./Run.x
-rm semantic.tab.* lex.yy.c Vick.exe
+rm syntactic.tab.* lex.yy.c Vick.exe
 
-bison -d semantic.y
+bison -d syntactic.y
 flex lexical.l
-gcc semantic.tab.c lex.yy.c -lfl -o Vick.exe
+gcc syntactic.tab.c lex.yy.c -lfl -o Vick.exe
 
 ./Vick.exe  Prueba.x

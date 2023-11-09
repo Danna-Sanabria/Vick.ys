@@ -48,7 +48,7 @@ float getSymbolValue(char *name) {
 %token <sval> IVR STR IFU
 %token <ival> INT
 %token <fval> FLO
-%token BIN VAR IGU MAS MUL RES DIV MEN MEI MAY MAI EQU DIF SII PIZ PDE FIN NOO HAS FUN PAR ATR ITR FUE CAP ARG PRINT
+%token BIN VAR IGU MAS MUL RES DIV MEN MEI MAY MAI EQU DIF SII PIZ PDE FIN NOO HAS FUN PAR RTN ITR FUE ATP ARG PRINT
 
 %type <fval> value
 %type <fval> operation
@@ -56,11 +56,11 @@ float getSymbolValue(char *name) {
 
 %%
 
-sentences   : 
+program   : 
             | sentence 
             | decfun   
-            | sentences sentence 
-            | sentences decfun 
+            | program sentence 
+            | program decfun 
 
 sentence    : decvar
             | asigvar 
@@ -94,10 +94,10 @@ operation     : value MAS value { $$ = $1 + $3; }
 
 callfuncion : IFU ARG BIN 
 
-sii        : SII PIZ condition PDE sentences FIN 
-            | SII PIZ condition PDE sentences NOO sentences FIN 
+sii        : SII PIZ condition PDE program FIN 
+            | SII PIZ condition PDE program NOO program FIN 
 
-hasta         : HAS PIZ condition PDE sentences FIN 
+hasta         : HAS PIZ condition PDE program FIN 
 
 condition    : value MEN value 
             | value MEI value 
@@ -106,12 +106,12 @@ condition    : value MEN value
             | value EQU value 
             | value DIF value 
 
-decfun        : FUN IFU PAR sentences atras FUE 
+decfun        : FUN IFU PAR program atras FUE 
 
-atras         : ATR value BIN 
-            | ATR operation BIN 
+atras         : RTN value BIN 
+            | RTN operation BIN 
 
-err         : ITR sentences CAP sentences FIN 
+err         : ITR program ATP program FIN 
 
 printSentence : PRINT value BIN { printf("%f\n", $2); }
 

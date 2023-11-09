@@ -35,8 +35,8 @@
    especially those whose name start with YY_ or yy_.  They are
    private implementation details that can be changed or removed.  */
 
-#ifndef YY_YY_SEMANTIC_TAB_H_INCLUDED
-# define YY_YY_SEMANTIC_TAB_H_INCLUDED
+#ifndef YY_YY_SYNTACTIC_TAB_H_INCLUDED
+# define YY_YY_SYNTACTIC_TAB_H_INCLUDED
 /* Debug traces.  */
 #ifndef YYDEBUG
 # define YYDEBUG 0
@@ -57,28 +57,28 @@ extern int yydebug;
     IVR = 258,                     /* IVR  */
     STR = 259,                     /* STR  */
     IFU = 260,                     /* IFU  */
-    FUN = 261,                     /* FUN  */
-    INT = 262,                     /* INT  */
-    FLO = 263,                     /* FLO  */
-    BIN = 264,                     /* BIN  */
-    VAR = 265,                     /* VAR  */
-    IGU = 266,                     /* IGU  */
-    MAS = 267,                     /* MAS  */
-    MUL = 268,                     /* MUL  */
-    RES = 269,                     /* RES  */
-    DIV = 270,                     /* DIV  */
-    MEN = 271,                     /* MEN  */
-    MEI = 272,                     /* MEI  */
-    MAY = 273,                     /* MAY  */
-    MAI = 274,                     /* MAI  */
-    EQU = 275,                     /* EQU  */
-    DIF = 276,                     /* DIF  */
-    SII = 277,                     /* SII  */
-    PIZ = 278,                     /* PIZ  */
-    PDE = 279,                     /* PDE  */
-    FIN = 280,                     /* FIN  */
-    NOO = 281,                     /* NOO  */
-    HAS = 282,                     /* HAS  */
+    INT = 261,                     /* INT  */
+    FLO = 262,                     /* FLO  */
+    BIN = 263,                     /* BIN  */
+    VAR = 264,                     /* VAR  */
+    IGU = 265,                     /* IGU  */
+    MAS = 266,                     /* MAS  */
+    MUL = 267,                     /* MUL  */
+    RES = 268,                     /* RES  */
+    DIV = 269,                     /* DIV  */
+    MEN = 270,                     /* MEN  */
+    MEI = 271,                     /* MEI  */
+    MAY = 272,                     /* MAY  */
+    MAI = 273,                     /* MAI  */
+    EQU = 274,                     /* EQU  */
+    DIF = 275,                     /* DIF  */
+    SII = 276,                     /* SII  */
+    PIZ = 277,                     /* PIZ  */
+    PDE = 278,                     /* PDE  */
+    FIN = 279,                     /* FIN  */
+    NOO = 280,                     /* NOO  */
+    HAS = 281,                     /* HAS  */
+    FUN = 282,                     /* FUN  */
     PAR = 283,                     /* PAR  */
     RTN = 284,                     /* RTN  */
     ITR = 285,                     /* ITR  */
@@ -94,13 +94,13 @@ extern int yydebug;
 #if ! defined YYSTYPE && ! defined YYSTYPE_IS_DECLARED
 union YYSTYPE
 {
-#line 60 "semantic.y"
+#line 42 "syntactic.y"
 
     int ival;
     float fval;
     char *sval;
 
-#line 104 "semantic.tab.h"
+#line 104 "syntactic.tab.h"
 
 };
 typedef union YYSTYPE YYSTYPE;
@@ -115,4 +115,4 @@ extern YYSTYPE yylval;
 int yyparse (void);
 
 
-#endif /* !YY_YY_SEMANTIC_TAB_H_INCLUDED  */
+#endif /* !YY_YY_SYNTACTIC_TAB_H_INCLUDED  */

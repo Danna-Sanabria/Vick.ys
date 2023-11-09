@@ -20,12 +20,15 @@ print v7;
 
 var v8 = 9;
 sii (v8 < 10) var v8 = 5; fin
+
+
+intentar 1/0; atrapar 3 + 2; fin
+print v8;
+
+funcion fun0
 print v8;
 
 var v9 = 0;
+
 hasta (v9 < 5) v9 = v9 + 1; fin
 print v9;
-
-intentar 1/0; capturar 3 + 2; fin
-
-funcion fun0 (var v1 var v2) v1 = v1 + v2; volver v2; funcEnd

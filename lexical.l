@@ -1,5 +1,5 @@
 %{
-#include "semantic.tab.h"
+#include "syntactic.tab.h"
 %}
 
 identiVar [a-z]+[0-9]+
@@ -37,10 +37,10 @@ argumento \[("v"[0-9]+" "?)*\]
 {identiFuncion}                 {return IFU;}
 {param}                         {return PAR;}
 {argumento}                     {return ARG;}
-"atras"                         {return ATR;}
+"retorno"                         {return RTN;}
 "intentar"                      {return ITR;}
 "funcEnd"                       {return FUE;}
-"capturar"                       {return CAP;}
+"atrapar"                       {return ATP;}
 "print"                         {return PRINT;}
 [ \t\n]                               {/* ignorar espacios */}
 .                                {printf("Error léxico: %s\n", yytext);}
