@@ -124,7 +124,7 @@ callfuncion : IVR PIZ PDE PYC { create($1); }
 sii         : SII PIZ condition PDE program FIN 
             | SII PIZ condition PDE program NOO program FIN 
 
-hasta       : HAS PIZ condition PDE program FIN 
+hasta       : HAS PIZ condition PDE asigvar 
 
 condition   : value MEN value 
             | value MEI value 

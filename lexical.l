@@ -32,14 +32,14 @@ argumento \[("[0-9]+"?)*\]
 ")"                             {return PDE;}
 "fin"                           {return FIN;}
 "no"                            {return NOO;}
-"hasta"                         {return HAS;}
+"mientras"                         {return HAS;}
 {param}                         {return PAR;}
 {argumento}                     {return ARG;}
 "retorno"                       {return RTN;}
 "intentar"                      {return ITR;}
 "funcEnd"                       {return FUE;}
 "atrapar"                       {return ATP;}
-"print"                         {return PRINT;}
+"imprimir"                         {return PRINT;}
 [ \t\n]                               {/* ignorar espacios */}
 .                                {printf("Error léxico: %s\n", yytext);}
 %%
