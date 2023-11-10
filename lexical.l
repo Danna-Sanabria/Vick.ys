@@ -13,16 +13,16 @@ argumento \[("[0-9]+"?)*\]
 %%
 \;                              {return PYC;}
 "var"                           {return VAR;}
-"funcion"                          {return FUN;}
-{identiVar}                 {yylval.sval = strdup(yytext); return IVR;}
+"funcion"                       {return FUN;}
+{identiVar}                     {yylval.sval = strdup(yytext); return IVR;}
 {string}                        {yylval.sval = strdup(yytext); return STR;}
 {float}                         {yylval.fval = atof(yytext); return FLO;}
 {int}                           {yylval.ival = atoi(yytext); return INT;}
-=                                {return IGU;}
-\+                                {return MAS;}
-\*                                {return MUL;}
-\-                                {return RES;}
-\/                                {return DIV;}
+=                               {return IGU;}
+\+                              {return MAS;}
+\*                              {return MUL;}
+\-                              {return RES;}
+\/                              {return DIV;}
 "<"                             {return MEN;}
 "<="                            {return MEI;}
 ">"                             {return MAY;}
@@ -34,16 +34,16 @@ argumento \[("[0-9]+"?)*\]
 ")"                             {return PDE;}
 "fin"                           {return FIN;}
 "no"                            {return NOO;}
-"mientras"                         {return HAS;}
+"mientras"                      {return HAS;}
 {param}                         {return PAR;}
 {argumento}                     {return ARG;}
 "retorno"                       {return RTN;}
 "intentar"                      {return ITR;}
 "funcEnd"                       {return FUE;}
 "atrapar"                       {return ATP;}
-"imprimir"                         {return PRINT;}
-[ \t\n]                               {/* ignorar espacios */}
-.                                {printf("Error léxico: %s\n", yytext);}
+"imprimir"                      {return PRINT;}
+[ \t\n]                         {/* ignorar espacios */}
+.                               {printf("Error léxico: %s\n", yytext);}
 %%
 /**Seccion de codigo de usuario**/
 int yywrap(){return 1;}
