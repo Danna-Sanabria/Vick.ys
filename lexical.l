@@ -1,3 +1,4 @@
+/** Seccion de definiciones**/
 %{
 #include "syntactic.tab.h"
 %}
@@ -8,6 +9,7 @@ int -?[0-9]+
 string \"[^(\n|\")]*\"
 param \(("var v"[0-9]+" "?)*\)
 argumento \[("[0-9]+"?)*\]
+/** Seccion de reglas**/
 %%
 \;                              {return PYC;}
 "var"                           {return VAR;}
@@ -43,4 +45,5 @@ argumento \[("[0-9]+"?)*\]
 [ \t\n]                               {/* ignorar espacios */}
 .                                {printf("Error léxico: %s\n", yytext);}
 %%
+/**Seccion de codigo de usuario**/
 int yywrap(){return 1;}

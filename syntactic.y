@@ -1,3 +1,4 @@
+/** Seccion de definicones**/
 %{
 #include <stdio.h>
 #include <stdlib.h>
@@ -78,7 +79,7 @@ float getSymbolValue(char *name) {
 %type <fval> value
 %type <fval> operation
 %type <fval> printSentence
-
+/** Sección de reglas**/
 %%
 
 program   : 
@@ -147,7 +148,7 @@ err         : ITR program ATP program FIN
 printSentence : PRINT value PYC { printf("%f\n", $2); }
 
 %%
-
+/**Seccion de codigo de usuario**/
 void yyerror(char *s){
     printf("Error Sintáctico: %s\n", s);
 }
