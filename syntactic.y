@@ -28,6 +28,30 @@ void setSymbolValue(char *name, float value) {
     symbolCount++;
 }
 
+void setSymbolValue2(char *name, float value, float value2) {
+    for (int i = 0; i < symbolCount; ++i) {
+        if (strcmp(symbolTable[i].name, name) == 0) {
+            symbolTable[i].value = value + value2;
+            return;
+        }
+    }
+    symbolTable[symbolCount].name = strdup(name);
+    symbolTable[symbolCount].value = value + value2;
+    symbolCount++;
+}
+
+void create(char *name) {
+    for (int i = 0; i < symbolCount; ++i) {
+        if (strcmp(symbolTable[i].name, name) == 0) {
+            symbolTable[i].value = 0;
+            return;
+        }
+    }
+    symbolTable[symbolCount].name = strdup(name);
+    symbolTable[symbolCount].value = 0;
+    symbolCount++;
+}
+
 float getSymbolValue(char *name) {
     for (int i = 0; i < symbolCount; ++i) {
         if (strcmp(symbolTable[i].name, name) == 0) {
@@ -46,7 +70,7 @@ float getSymbolValue(char *name) {
     char *sval;
 }
 
-%token <sval> IVR STR IFU
+%token <sval> IVR STR
 %token <ival> INT
 %token <fval> FLO
 %token PYC VAR IGU MAS MUL RES DIV MEN MEI MAY MAI EQU DIF SII PIZ PDE FIN NOO HAS FUN PAR RTN ITR FUE ATP ARG PRINT
@@ -73,12 +97,13 @@ sentence    : decvar
             | callfuncion  
             | printSentence
 
-decvar      : VAR IVR PYC 
+decvar      : VAR IVR PYC {  create($2); }
 
 initvar     : VAR IVR IGU INT PYC { setSymbolValue($2, (float)$4); }
             | VAR IVR IGU FLO PYC { setSymbolValue($2, $4); }
             | VAR IVR IGU operation PYC { setSymbolValue($2, (float)$4); }
             | VAR IVR IGU STR
+            | VAR IVR IGU value { setSymbolValue($2, $4); }
 
 asigvar     : IVR IGU value PYC { setSymbolValue($1, $3); }
             | IVR IGU operation PYC
@@ -93,7 +118,8 @@ operation   : value MAS value { $$ = $1 + $3; }
             | value MUL value { $$ = $1 * $3; }
             | value DIV value { $$ = $1 / $3; }
 
-callfuncion : IFU ARG PYC 
+callfuncion : IVR PIZ PDE PYC { create($1); }
+            | IVR PIZ INT INT PDE PYC { setSymbolValue2($1, (float)$3, (float)$4); }
 
 sii         : SII PIZ condition PDE program FIN 
             | SII PIZ condition PDE program NOO program FIN 
@@ -107,9 +133,13 @@ condition   : value MEN value
             | value EQU value 
             | value DIF value 
 
-decfun      : IFU 
+decfun      : FUN IVR PAR PYC {  create($2); }
+            | FUN IVR PAR atras {  create($2); }
+            | FUN IVR PAR decvar atras {  create($2); }
+            | FUN IVR PAR initvar atras {  create($2); }
+            | FUN IVR PAR asigvar atras {  create($2); }
 
-atras       : RTN value PYC 
+atras       : RTN IVR PYC 
             | RTN operation PYC 
 
 err         : ITR program ATP program FIN 

@@ -6,12 +6,12 @@ identiVar [a-z]+[0-9]+
 float -?[0-9]+\.[0-9]*
 int -?[0-9]+ 
 string \"[^(\n|\")]*\"
-identiFuncion fun[0-9]+
 param \(("var v"[0-9]+" "?)*\)
 argumento \[("[0-9]+"?)*\]
 %%
 \;                              {return PYC;}
 "var"                           {return VAR;}
+"funcion"                          {return FUN;}
 {identiVar}                 {yylval.sval = strdup(yytext); return IVR;}
 {string}                        {yylval.sval = strdup(yytext); return STR;}
 {float}                         {yylval.fval = atof(yytext); return FLO;}
@@ -33,11 +33,9 @@ argumento \[("[0-9]+"?)*\]
 "fin"                           {return FIN;}
 "no"                            {return NOO;}
 "hasta"                         {return HAS;}
-"funcion"                       {return FUN;}
-{identiFuncion}                 {return IFU;}
 {param}                         {return PAR;}
 {argumento}                     {return ARG;}
-"retorno"                         {return RTN;}
+"retorno"                       {return RTN;}
 "intentar"                      {return ITR;}
 "funcEnd"                       {return FUE;}
 "atrapar"                       {return ATP;}

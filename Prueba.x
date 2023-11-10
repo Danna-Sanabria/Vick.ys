@@ -1,3 +1,20 @@
+funcion fun1() var a3 = 1 + 1; retorno a3;
+print a3;
+
+funcion fun2(var v1 var v2);
+print fun2;
+
+funcion fun0() var z1 = 8 + 1; retorno z1;
+print z1;
+
+funcion fun7(var v1 var v2);
+fun7(1 2);
+print fun7;
+
+
+var a12;
+print a12;
+
 var a1 = 1;
 print a1;
 
@@ -25,7 +42,7 @@ sii (v8 < 10) var v8 = 5; fin
 intentar 1/0; atrapar 3 + 2; fin
 print v8;
 
-fun1 
+fun1 = 1;
 print v8;
 
 var v9 = 0;

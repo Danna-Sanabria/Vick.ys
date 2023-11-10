@@ -56,36 +56,35 @@ extern int yydebug;
     YYUNDEF = 257,                 /* "invalid token"  */
     IVR = 258,                     /* IVR  */
     STR = 259,                     /* STR  */
-    IFU = 260,                     /* IFU  */
-    INT = 261,                     /* INT  */
-    FLO = 262,                     /* FLO  */
-    PYC = 263,                     /* PYC  */
-    VAR = 264,                     /* VAR  */
-    IGU = 265,                     /* IGU  */
-    MAS = 266,                     /* MAS  */
-    MUL = 267,                     /* MUL  */
-    RES = 268,                     /* RES  */
-    DIV = 269,                     /* DIV  */
-    MEN = 270,                     /* MEN  */
-    MEI = 271,                     /* MEI  */
-    MAY = 272,                     /* MAY  */
-    MAI = 273,                     /* MAI  */
-    EQU = 274,                     /* EQU  */
-    DIF = 275,                     /* DIF  */
-    SII = 276,                     /* SII  */
-    PIZ = 277,                     /* PIZ  */
-    PDE = 278,                     /* PDE  */
-    FIN = 279,                     /* FIN  */
-    NOO = 280,                     /* NOO  */
-    HAS = 281,                     /* HAS  */
-    FUN = 282,                     /* FUN  */
-    PAR = 283,                     /* PAR  */
-    RTN = 284,                     /* RTN  */
-    ITR = 285,                     /* ITR  */
-    FUE = 286,                     /* FUE  */
-    ATP = 287,                     /* ATP  */
-    ARG = 288,                     /* ARG  */
-    PRINT = 289                    /* PRINT  */
+    INT = 260,                     /* INT  */
+    FLO = 261,                     /* FLO  */
+    PYC = 262,                     /* PYC  */
+    VAR = 263,                     /* VAR  */
+    IGU = 264,                     /* IGU  */
+    MAS = 265,                     /* MAS  */
+    MUL = 266,                     /* MUL  */
+    RES = 267,                     /* RES  */
+    DIV = 268,                     /* DIV  */
+    MEN = 269,                     /* MEN  */
+    MEI = 270,                     /* MEI  */
+    MAY = 271,                     /* MAY  */
+    MAI = 272,                     /* MAI  */
+    EQU = 273,                     /* EQU  */
+    DIF = 274,                     /* DIF  */
+    SII = 275,                     /* SII  */
+    PIZ = 276,                     /* PIZ  */
+    PDE = 277,                     /* PDE  */
+    FIN = 278,                     /* FIN  */
+    NOO = 279,                     /* NOO  */
+    HAS = 280,                     /* HAS  */
+    FUN = 281,                     /* FUN  */
+    PAR = 282,                     /* PAR  */
+    RTN = 283,                     /* RTN  */
+    ITR = 284,                     /* ITR  */
+    FUE = 285,                     /* FUE  */
+    ATP = 286,                     /* ATP  */
+    ARG = 287,                     /* ARG  */
+    PRINT = 288                    /* PRINT  */
   };
   typedef enum yytokentype yytoken_kind_t;
 #endif
@@ -94,13 +93,13 @@ extern int yydebug;
 #if ! defined YYSTYPE && ! defined YYSTYPE_IS_DECLARED
 union YYSTYPE
 {
-#line 43 "syntactic.y"
+#line 67 "syntactic.y"
 
     int ival;
     float fval;
     char *sval;
 
-#line 104 "syntactic.tab.h"
+#line 103 "syntactic.tab.h"
 
 };
 typedef union YYSTYPE YYSTYPE;
