@@ -67,7 +67,7 @@
 
 
 /* First part of user prologue.  */
-#line 1 "syntactic.y"
+#line 2 "syntactic.y"
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -599,12 +599,12 @@ static const yytype_int8 yytranslate[] =
 /* YYRLINE[YYN] -- Source line where rule number YYN was defined.  */
 static const yytype_uint8 yyrline[] =
 {
-       0,    84,    84,    85,    86,    87,    88,    90,    91,    92,
-      93,    94,    95,    96,    97,    98,   100,   102,   103,   104,
-     105,   106,   108,   109,   110,   112,   113,   114,   116,   117,
-     118,   119,   121,   122,   124,   125,   127,   129,   130,   131,
-     132,   133,   134,   136,   137,   138,   139,   140,   142,   143,
-     145,   147
+       0,    85,    85,    86,    87,    88,    89,    91,    92,    93,
+      94,    95,    96,    97,    98,    99,   101,   103,   104,   105,
+     106,   107,   109,   110,   111,   113,   114,   115,   117,   118,
+     119,   120,   122,   123,   125,   126,   128,   130,   131,   132,
+     133,   134,   135,   137,   138,   139,   140,   141,   143,   144,
+     146,   148
 };
 #endif
 
@@ -1246,127 +1246,127 @@ yyreduce:
   switch (yyn)
     {
   case 16: /* decvar: VAR IVR PYC  */
-#line 100 "syntactic.y"
+#line 101 "syntactic.y"
                           {  create((yyvsp[-1].sval)); }
 #line 1252 "syntactic.tab.c"
     break;
 
   case 17: /* initvar: VAR IVR IGU INT PYC  */
-#line 102 "syntactic.y"
+#line 103 "syntactic.y"
                                   { setSymbolValue((yyvsp[-3].sval), (float)(yyvsp[-1].ival)); }
 #line 1258 "syntactic.tab.c"
     break;
 
   case 18: /* initvar: VAR IVR IGU FLO PYC  */
-#line 103 "syntactic.y"
+#line 104 "syntactic.y"
                                   { setSymbolValue((yyvsp[-3].sval), (yyvsp[-1].fval)); }
 #line 1264 "syntactic.tab.c"
     break;
 
   case 19: /* initvar: VAR IVR IGU operation PYC  */
-#line 104 "syntactic.y"
+#line 105 "syntactic.y"
                                         { setSymbolValue((yyvsp[-3].sval), (float)(yyvsp[-1].fval)); }
 #line 1270 "syntactic.tab.c"
     break;
 
   case 21: /* initvar: VAR IVR IGU value  */
-#line 106 "syntactic.y"
+#line 107 "syntactic.y"
                                 { setSymbolValue((yyvsp[-2].sval), (yyvsp[0].fval)); }
 #line 1276 "syntactic.tab.c"
     break;
 
   case 22: /* asigvar: IVR IGU value PYC  */
-#line 108 "syntactic.y"
+#line 109 "syntactic.y"
                                 { setSymbolValue((yyvsp[-3].sval), (yyvsp[-1].fval)); }
 #line 1282 "syntactic.tab.c"
     break;
 
   case 25: /* value: INT  */
-#line 112 "syntactic.y"
+#line 113 "syntactic.y"
                   { (yyval.fval) = (float)(yyvsp[0].ival); }
 #line 1288 "syntactic.tab.c"
     break;
 
   case 26: /* value: FLO  */
-#line 113 "syntactic.y"
+#line 114 "syntactic.y"
                   { (yyval.fval) = (yyvsp[0].fval); }
 #line 1294 "syntactic.tab.c"
     break;
 
   case 27: /* value: IVR  */
-#line 114 "syntactic.y"
+#line 115 "syntactic.y"
                   { (yyval.fval) = getSymbolValue((yyvsp[0].sval)); }
 #line 1300 "syntactic.tab.c"
     break;
 
   case 28: /* operation: value MAS value  */
-#line 116 "syntactic.y"
+#line 117 "syntactic.y"
                               { (yyval.fval) = (yyvsp[-2].fval) + (yyvsp[0].fval); }
 #line 1306 "syntactic.tab.c"
     break;
 
   case 29: /* operation: value RES value  */
-#line 117 "syntactic.y"
+#line 118 "syntactic.y"
                               { (yyval.fval) = (yyvsp[-2].fval) - (yyvsp[0].fval); }
 #line 1312 "syntactic.tab.c"
     break;
 
   case 30: /* operation: value MUL value  */
-#line 118 "syntactic.y"
+#line 119 "syntactic.y"
                               { (yyval.fval) = (yyvsp[-2].fval) * (yyvsp[0].fval); }
 #line 1318 "syntactic.tab.c"
     break;
 
   case 31: /* operation: value DIV value  */
-#line 119 "syntactic.y"
+#line 120 "syntactic.y"
                               { (yyval.fval) = (yyvsp[-2].fval) / (yyvsp[0].fval); }
 #line 1324 "syntactic.tab.c"
     break;
 
   case 32: /* callfuncion: IVR PIZ PDE PYC  */
-#line 121 "syntactic.y"
+#line 122 "syntactic.y"
                               { create((yyvsp[-3].sval)); }
 #line 1330 "syntactic.tab.c"
     break;
 
   case 33: /* callfuncion: IVR PIZ INT INT PDE PYC  */
-#line 122 "syntactic.y"
+#line 123 "syntactic.y"
                                       { setSymbolValue2((yyvsp[-5].sval), (float)(yyvsp[-3].ival), (float)(yyvsp[-2].ival)); }
 #line 1336 "syntactic.tab.c"
     break;
 
   case 43: /* decfun: FUN IVR PAR PYC  */
-#line 136 "syntactic.y"
+#line 137 "syntactic.y"
                               {  create((yyvsp[-2].sval)); }
 #line 1342 "syntactic.tab.c"
     break;
 
   case 44: /* decfun: FUN IVR PAR atras  */
-#line 137 "syntactic.y"
+#line 138 "syntactic.y"
                                 {  create((yyvsp[-2].sval)); }
 #line 1348 "syntactic.tab.c"
     break;
 
   case 45: /* decfun: FUN IVR PAR decvar atras  */
-#line 138 "syntactic.y"
+#line 139 "syntactic.y"
                                        {  create((yyvsp[-3].sval)); }
 #line 1354 "syntactic.tab.c"
     break;
 
   case 46: /* decfun: FUN IVR PAR initvar atras  */
-#line 139 "syntactic.y"
+#line 140 "syntactic.y"
                                         {  create((yyvsp[-3].sval)); }
 #line 1360 "syntactic.tab.c"
     break;
 
   case 47: /* decfun: FUN IVR PAR asigvar atras  */
-#line 140 "syntactic.y"
+#line 141 "syntactic.y"
                                         {  create((yyvsp[-3].sval)); }
 #line 1366 "syntactic.tab.c"
     break;
 
   case 51: /* printSentence: PRINT value PYC  */
-#line 147 "syntactic.y"
+#line 148 "syntactic.y"
                                 { printf("%f\n", (yyvsp[-1].fval)); }
 #line 1372 "syntactic.tab.c"
     break;
@@ -1565,9 +1565,9 @@ yyreturnlab:
   return yyresult;
 }
 
-#line 149 "syntactic.y"
+#line 150 "syntactic.y"
 
-
+/**Seccion de codigo de usuario**/
 void yyerror(char *s){
     printf("Error Sintáctico: %s\n", s);
 }
