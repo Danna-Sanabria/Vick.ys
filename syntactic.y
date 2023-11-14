@@ -90,6 +90,7 @@ float getSymbolValue(char *name) {
 %token PYC VAR IGU MAS MUL RES DIV MEN MEI MAY MAI EQU DIF SII PIZ PDE FIN NOO HAS FUN PAR RTN ITR FUE ATP ARG PRINT POR
 
 %type <fval> value
+%type <fval> initvar
 %type <fval> operation
 %type <fval> condition
 %type <fval> printSentence
@@ -108,14 +109,19 @@ sentence    : decvar
             | operation PYC 
             | sii
             | hasta
+            | for
             | err 
             | callfuncion  
             | printSentence
 
 decvar      : VAR IVR PYC {  create($2); }
 
-initvar     : VAR IVR IGU INT PYC { setSymbolValue($2, (float)$4); }
-            | VAR IVR IGU FLO PYC { setSymbolValue($2, $4); }
+initvar     : VAR IVR IGU INT PYC { setSymbolValue($2, (float)$4); 
+                                    $$ = $4;
+                                  }
+            | VAR IVR IGU FLO PYC { setSymbolValue($2, $4); 
+                                    $$ = $4;  
+                                  }
             | VAR IVR IGU operation PYC { setSymbolValue($2, (float)$4); }
             | VAR IVR IGU STR PYC { setSymbolValueC($2, $4); }
             | VAR IVR IGU value { setSymbolValue($2, $4); }
@@ -211,7 +217,17 @@ return      : RTN IVR PYC
 err         : ITR program ATP program FIN
             | ITR PYC ATP printSentence FIN 
 
-for         : POR
+for         : POR PIZ VAR IVR IGU INT PYC condition PDE IVR IGU operation PYC {int i;
+                                                                                setSymbolValue($4, (float)$6); 
+                                                                                for(i = $6; i <= 5; i++){
+                                                                                    setSymbolValue($10, i);
+                                                                                }
+                                                                              }
+            | POR PIZ initvar condition PDE asigvar {int i;
+                                                     for(i = $3; i <= 5; i++){
+                                                         printf("pasa");
+                                                     }
+                                                    }
 
 printSentence : PRINT PIZ value PDE PYC { printf("%f\n", $3); }
               | PRINT PIZ STR PDE PYC { printf("%s\n", $3); }
