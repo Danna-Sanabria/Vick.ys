@@ -143,10 +143,11 @@ decfun      : FUN IVR PAR PYC {  create($2); }
 atras       : RTN IVR PYC 
             | RTN operation PYC 
 
-err         : ITR program ATP program FIN 
+err         : ITR program ATP program FIN
+            | ITR PYC ATP printSentence FIN 
 
-printSentence : PRINT value PYC { printf("%f\n", $2); }
-
+printSentence : PRINT PIZ value PDE PYC { printf("%f\n", $3); }
+              | PRINT PIZ STR PDE PYC { printf("%s\n", $3); }
 %%
 /**Seccion de codigo de usuario**/
 void yyerror(char *s){
