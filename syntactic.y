@@ -160,11 +160,12 @@ sii         : SII PIZ condition PDE operation PYC FIN {if($3 == 0)
                                                                                         setSymbolValue($9, $11);
                                                                                     }
 
-hasta       : HAS PIZ condition PDE asigvar {while($3==0){
-                                                printf("Hello\n");
-                                                break;
-                                             }  
-                                            }
+hasta       : HAS PIZ value MEN value PDE IVR IGU operation PYC {while($3 < $5){
+                                                                    $3 += 1;
+                                                                    printf("%f\n", $3);
+                                                                    setSymbolValue($7, $3);
+                                                                 }  
+                                                                }
 
 condition   : value MEN value {if($1 < $3)
                                     $$ = 0;
