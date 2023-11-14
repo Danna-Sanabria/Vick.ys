@@ -35,29 +35,29 @@ sii (prueba2 > 10) prueba2 = 5 + prueba1 ; fin
 imprimir (prueba2);
 
 var prueba3 = 10;
-sii (prueba3 > 10) prueba3 = 20 - prueba2 no prueba3 = 30 + prueba2; fin
+sii (prueba3 >= 10) prueba3 = 20 - prueba2 no prueba3 = 30 + prueba2; fin
 imprimir (prueba3);
 
 var v9 = 0;
-mientras(v9 < 5) v9 = v9 + 1;
+mientras(v9 < 8) v9 = v9 + 1;
 imprimir (v9);
 
 var pruebafor1 = 0;
-var vicky1;
-por(vicky1 = 0; vicky1 <= 9) pruebafor1 = pruebafor1 + 1;
+var i1;
+por(i1 = 0; i1 <= 9) pruebafor1 = pruebafor1 + 1;
 imprimir (pruebafor1);
 
-funcion fun1() var a3 = 1 + 1; retorno a3;finFun
+funcion suma1() var a3 = 4 + 1; retorno a3;finFun
 imprimir (a3);
 
 funcion fun2(var v1 var v2);finFun
 imprimir (fun2);
 
-funcion fun0() var z1 = 8 + 1; retorno z1; finFun
+funcion fun0() var z1 = a3 + 1; retorno z1; finFun
 imprimir (z1);
 
 funcion fun7(var v1 var v2);finFun
-fun7(1 2);
+fun7(9 2);
 imprimir (fun7);
 
 intentar 1/0; atrapar imprimir("No se puede dividir por cero"); fin

@@ -5,7 +5,7 @@
 
 identiVar [a-z]+[0-9]+
 float -?[0-9]+\.[0-9]*
-int -?[0-9]+ 
+int -?[0-9]+
 string \"[^(\n|\")]*\"
 param \(("var v"[0-9]+" "?)*\)
 argumento \[("[0-9]+"?)*\]
