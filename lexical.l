@@ -35,11 +35,12 @@ argumento \[("[0-9]+"?)*\]
 "fin"                           {return FIN;}
 "no"                            {return NOO;}
 "mientras"                      {return HAS;}
+"por"                           {return POR;}
 {param}                         {return PAR;}
 {argumento}                     {return ARG;}
 "retorno"                       {return RTN;}
 "intentar"                      {return ITR;}
-"funcEnd"                       {return FUE;}
+"finFun"                       {return FUE;}
 "atrapar"                       {return ATP;}
 "imprimir"                      {return PRINT;}
 [ \t\n]                         {/* ignorar espacios */}

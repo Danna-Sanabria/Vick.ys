@@ -84,7 +84,8 @@ extern int yydebug;
     FUE = 285,                     /* FUE  */
     ATP = 286,                     /* ATP  */
     ARG = 287,                     /* ARG  */
-    PRINT = 288                    /* PRINT  */
+    PRINT = 288,                   /* PRINT  */
+    POR = 289                      /* POR  */
   };
   typedef enum yytokentype yytoken_kind_t;
 #endif
@@ -93,13 +94,13 @@ extern int yydebug;
 #if ! defined YYSTYPE && ! defined YYSTYPE_IS_DECLARED
 union YYSTYPE
 {
-#line 68 "syntactic.y"
+#line 81 "syntactic.y"
 
     int ival;
     float fval;
     char *sval;
 
-#line 103 "syntactic.tab.h"
+#line 104 "syntactic.tab.h"
 
 };
 typedef union YYSTYPE YYSTYPE;
