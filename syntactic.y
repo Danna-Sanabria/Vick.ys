@@ -168,7 +168,6 @@ sii         : SII PIZ condition PDE operation PYC FIN {if($3 == 0)
 
 hasta       : HAS PIZ value MEN value PDE IVR IGU operation PYC {while($3 < $5){
                                                                     $3 += 1;
-                                                                    printf("%f\n", $3);
                                                                     setSymbolValue($7, $3);
                                                                  }  
                                                                 }
@@ -217,14 +216,14 @@ return      : RTN IVR PYC
 err         : ITR program ATP program FIN
             | ITR PYC ATP printSentence FIN 
 
-for         : POR PIZ VAR IVR IGU INT PYC condition PDE IVR IGU operation PYC {int i;
-                                                                                setSymbolValue($4, (float)$6); 
-                                                                                for(i = $6; i <= 5; i++){
-                                                                                    setSymbolValue($10, i);
+for         : POR PIZ IVR IGU INT PYC condition PDE IVR IGU operation PYC {int i;
+                                                                                setSymbolValue($3, (float)$5); 
+                                                                                for(i = $5; i <= 9; i++){
+                                                                                    setSymbolValue($9, i);
                                                                                 }
                                                                               }
             | POR PIZ initvar condition PDE asigvar {int i;
-                                                     for(i = $3; i <= 5; i++){
+                                                     for(i = $3; i <= 9; i++){
                                                          printf("pasa");
                                                      }
                                                     }

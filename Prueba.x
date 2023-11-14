@@ -35,7 +35,7 @@ sii (prueba2 > 10) prueba2 = 5 + prueba1 ; fin
 imprimir (prueba2);
 
 var prueba3 = 10;
-sii (prueba3 > 10) prueba3 = 20 - prueba2 no prueba3 = 20 + prueba2; fin
+sii (prueba3 > 10) prueba3 = 20 - prueba2 no prueba3 = 30 + prueba2; fin
 imprimir (prueba3);
 
 var v9 = 0;
@@ -43,9 +43,9 @@ mientras(v9 < 5) v9 = v9 + 1;
 imprimir (v9);
 
 var pruebafor1 = 0;
-por(var vicky1 = 0; vicky1 <= 4) pruebafor1 = pruebafor1 + 1;
+var vicky1;
+por(vicky1 = 0; vicky1 <= 9) pruebafor1 = pruebafor1 + 1;
 imprimir (pruebafor1);
-
 
 funcion fun1() var a3 = 1 + 1; retorno a3;finFun
 imprimir (a3);
