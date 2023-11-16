@@ -1,3 +1,4 @@
+imprimir ("-------PRUEBA DECLARACION VARIABLES------");
 var a12;
 imprimir (a12);
 
@@ -5,7 +6,7 @@ var num1 = 1;
 imprimir (num1);
 
 var v12 = "Hola";
-imprimir ("Hola");
+imprimir (v12);
 
 var v2 = -2;
 imprimir (v2);
@@ -21,6 +22,8 @@ imprimir (v6);
 
 var v7 = z5 / 2;
 imprimir (v7);
+
+imprimir ("-------PRUEBA CONDICIONALES------");
 
 var v8 = 9;
 sii (v8 < 10) 4 + 10; fin
@@ -38,14 +41,29 @@ var prueba3 = 10;
 sii (prueba3 >= 10) prueba3 = 20 - prueba2 no prueba3 = 30 + prueba2; fin
 imprimir (prueba3);
 
+imprimir ("-------PRUEBA MIENTRAS------");
+
 var v9 = 0;
 mientras(v9 < 8) v9 = v9 + 1;
 imprimir (v9);
 
+var pa1 = 0;
+mientras(pa1 <= 8) pa1 = pa1 + 1;
+imprimir (pa1);
+
+imprimir ("-------PRUEBA POR------");
+
 var pruebafor1 = 0;
 var i1;
-por(i1 = 0; i1 <= 9) pruebafor1 = pruebafor1 + 1;
+por(i1 = 0; i1 < 40) pruebafor1 = pruebafor1 + 1;
 imprimir (pruebafor1);
+
+var pruebafor2 = 0;
+var i2;
+por(i2 = 0; i2 <= 40) pruebafor2 = pruebafor2 + 1;
+imprimir (pruebafor2);
+
+imprimir ("-------PRUEBA FUNCIONES------");
 
 funcion suma1() var a3 = 4 + 1; retorno a3;finFun
 imprimir (a3);
@@ -59,6 +77,8 @@ imprimir (z1);
 funcion fun7(var v1 var v2);finFun
 fun7(9 2);
 imprimir (fun7);
+
+imprimir ("-------PRUEBA ERRORES------");
 
 intentar 1/0; atrapar imprimir("No se puede dividir por cero"); fin
 intentar; atrapar imprimir (8); fin

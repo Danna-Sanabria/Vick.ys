@@ -171,6 +171,11 @@ hasta       : HAS PIZ value MEN value PDE IVR IGU operation PYC {while($3 < $5){
                                                                     setSymbolValue($7, $3);
                                                                  }  
                                                                 }
+            | HAS PIZ value MEI value PDE IVR IGU operation PYC {while($3 <= $5){
+                                                                    $3 += 1;
+                                                                    setSymbolValue($7, $3);
+                                                                 }  
+                                                                }
 
 condition   : value MEN value {if($1 < $3)
                                     $$ = 0;
@@ -216,10 +221,16 @@ return      : RTN IVR PYC
 err         : ITR program ATP program FIN
             | ITR PYC ATP printSentence FIN 
 
-for         : POR PIZ IVR IGU INT PYC condition PDE IVR IGU operation PYC {int i;
+for         : POR PIZ IVR IGU INT PYC value MEN value PDE IVR IGU operation PYC {int i;
                                                                                 setSymbolValue($3, (float)$5); 
-                                                                                for(i = $5; i <= 9; i++){
-                                                                                    setSymbolValue($9, i);
+                                                                                for(i = $5; i < $9; i++){
+                                                                                    setSymbolValue($11, i);
+                                                                                }
+                                                                              }
+            | POR PIZ IVR IGU INT PYC value MEI value PDE IVR IGU operation PYC {int i;
+                                                                                setSymbolValue($3, (float)$5); 
+                                                                                for(i = $5; i <= $9; i++){
+                                                                                    setSymbolValue($11, i);
                                                                                 }
                                                                               }
             | POR PIZ initvar condition PDE asigvar {int i;
